@@ -5,8 +5,7 @@ function App() {
   const [cep, setCep] = useState("");
 
   const [bairro, setBairro] = useState("");
-  const [logradouro, setLogradouro] = useState("");
-  const [localidade, setLocalidade] = useState("");
+  const [endereço, setEndereço] = useState("");
 
   const handleGetCep = (value: string) => {
     setCep(value);
@@ -20,8 +19,7 @@ function App() {
           .then((response) => response.json())
           .then((data) => {
             setBairro(data.bairro);
-            setLogradouro(data.logradouro);
-            setLocalidade(data.localidade);
+            setLogradouro(data.logradouro)
           });
       }
     }
@@ -34,9 +32,8 @@ function App() {
         getInfosByCep={getInfosByCep}
         handleGetCep={handleGetCep}
       />
-      <p>{localidade}</p>
       <p>{bairro}</p>
-      <p>{logradouro}</p>
+      <p>{endereço}</p>
     </>
   );
 }

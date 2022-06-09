@@ -21,7 +21,6 @@ function App() {
           .then((data) => {
             setBairro(data.bairro);
             setLogradouro(data.logradouro);
-            setLocalidade(data.localidade);
           });
       }
     }

@@ -6,7 +6,7 @@ function App() {
 
   const [bairro, setBairro] = useState("");
   const [logradouro, setLogradouro] = useState("");
-  const [localidade, setLocalidade] = useState("");
+  const 
 
   const handleGetCep = (value: string) => {
     setCep(value);
@@ -21,7 +21,6 @@ function App() {
           .then((data) => {
             setBairro(data.bairro);
             setLogradouro(data.logradouro);
-            setLocalidade(data.localidade);
           });
       }
     }

@@ -1,0 +1,25 @@
+import { useState } from "react";
+import { SearchBar } from "./components/SearchBar";
+import {}
+
+function App() {
+  const [cep, setCep] = useState<string>("");
+
+  async function getInfosByCep(cep: <ButtonHTMLAttributes>) {
+    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+    const data = await response.json();
+
+    console.log(data);
+    console.log(cep);
+  }
+
+  return (
+    <>
+      <input type="text" value={cep} onChange={(e) => setCep(e.target.value)} />
+      <button onClick={getInfosByCep}>Pesquisar</button>
+    </>
+  );
+}
+
+export default App;
