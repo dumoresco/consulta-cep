@@ -1,0 +1,18 @@
+input{
+    margin-top: 5px;
+    border: 1px solid gray;
+    padding: 0 15px;
+    height: 40px;
+    border-radius: 5px;    
+}
+.input-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+button{
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+}
+

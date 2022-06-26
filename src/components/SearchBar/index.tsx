@@ -1,4 +1,5 @@
 import React from "react";
+import './Style.css'
 
 import { ButtonHTMLAttributes } from "react";
 
@@ -15,11 +16,15 @@ export function SearchBar({
 }: SearchBarProps) {
   return (
     <>
-      <input
-        type="text"
-        value={setCep}
-        onChange={(e) => handleGetCep(e.target.value)}
-      />
+      <div className="input-item">
+        <label htmlFor="">Cep</label>
+        <input
+          type="text"
+          value={setCep}
+          onChange={(e) => handleGetCep(e.target.value)}
+        />
+      </div>
+     
       <button type="button" onClick={() => getInfosByCep(setCep)}>
         Pesquisar
       </button>
