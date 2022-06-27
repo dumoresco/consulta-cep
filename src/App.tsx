@@ -9,6 +9,7 @@ function App() {
   const [bairro, setBairro] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [localidade, setLocalidade] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false)
   const [ uf, setUf] = useState("")
 
   const handleGetCep = (value: string) => {
@@ -16,7 +17,7 @@ function App() {
   };
 
   function getInfosByCep(cep: string) {
-    if (cep != "") {
+    if (cep !== "") {
       var validacep = /^[0-9]{8}$/;
       if (validacep.test(cep)) {
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
@@ -47,7 +48,8 @@ function App() {
         <div className="input-group">
           <div className="input-item">
             <label htmlFor="">Endereço</label>
-            <input type="text" value={logradouro}/>
+            {!logradouro ?  <input type="text" value={logradouro} disabled/>:  <input type="text" value={logradouro}/>}
+           
           </div>
           <div className="input-item">
             <label htmlFor="">Bairro</label>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent, KeyboardEvent } from "react";
 import './Style.css'
 
 import { ButtonHTMLAttributes } from "react";
@@ -14,6 +14,14 @@ export function SearchBar({
   getInfosByCep,
   handleGetCep,
 }: SearchBarProps) {
+
+  function handleKeyPress(e:KeyboardEvent){
+    if(e.key === 'Enter'){
+      getInfosByCep(setCep);
+    }
+    e.preventDefault()
+  }
+
   return (
     <>
       <div className="input-item">
@@ -22,6 +30,7 @@ export function SearchBar({
           type="text"
           value={setCep}
           onChange={(e) => handleGetCep(e.target.value)}
+          onKeyUp={(e) => e.key === 'Enter' ? handleKeyPress(e) : null}
         />
       </div>
      
